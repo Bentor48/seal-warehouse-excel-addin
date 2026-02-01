@@ -1,0 +1,228 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Стиль цветовой темы и размер шрифта*/
+
+:root {
+    --white: #fff;
+    --footerColorText: #888;
+    --formColor: rgb(215, 230, 243);
+    --containerColor: #ffffffaa;
+    --textColor: rgba(0, 0, 0, 0.929);
+    --inputColorBorder: #ccc;
+    --headlineColor: #0650fc6a;
+    --validColor: #e6ffe6;
+    --borderInputSubmitColor: #028800;
+    --submitHoverColor: #026f00;
+    --inputInvalidColor: #ffe6e6;
+    --backColor: #a52a2a;
+    --searchHoverColor: #092ba7;
+    --selectColor: rgba(0, 128, 255, 0.444);
+
+    --cellHeader: 16px;
+    --footerFontSize: 12px;
+    --inputFontSize: 15px;
+    --labelFontSize: 16px;
+    --headerFontSize: 35px;
+    --forH2: 25px;
+}
+
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: var(--white);
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    footer {
+      margin: 8px auto; 
+      text-align: center;
+      color: var(--footerColorText);
+      font-size: var(--footerFontSize);
+      height: 20px;
+      border: none;
+      padding: 0;
+    }
+
+    .forForm {
+      max-width: 600px;
+      margin: 0 auto 0 auto;
+      margin-bottom: 0;
+      padding: 20px;
+      box-sizing: border-box;
+      background-color: var(--formColor);
+      border: none;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+
+    .container {
+      margin-bottom: 15px;
+      display: flex;
+      flex-direction: column;
+      background-color: var(--containerColor);
+      padding: 20px;
+      border-radius: 5px;
+      color: var(--textColor);
+    }
+
+    /* Заголовок формы */
+
+    .head {
+      text-align: center;
+      background-color: var(--headlineColor);
+      color: var(--textColor);
+    }
+
+    h1 {
+        font-size: var(--headerFontSize);
+    }
+
+    label {
+        color: var(--textColor);
+        font-size: var(--labelFontSize);
+    }
+
+    textarea {
+      width: 100%;
+      resize: vertical;
+    }
+
+    input, select {
+      height: 30px;
+    }
+
+    input[type="checkbox"] {
+      width: 40px;
+    }
+
+    input, textarea, select {
+      text-align: center;
+      font-size: var(--inputFontSize);
+      border: 1px solid var(--inputColorBorder);
+      border-radius: 4px;
+    }
+
+    input:focus, textarea:focus, select:focus {
+      outline: none;
+      border-color: var(--borderInputSubmitColor);
+    }
+
+    input:required:valid,
+    input:required:valid[type="url"] {
+      background-color: var(--validColor);
+    }
+
+    input:required:invalid {
+      background-color: var(--inputInvalidColor);
+      color: var(--textColor);
+    }
+
+    /* Кнопка отправки формы */
+    .button {
+      width: 100%;
+      padding: 10px;
+      border: none;
+      border-radius: 4px;
+      font-size: 16px;
+      cursor: pointer;
+      text-align: center;
+      transition: transform 0.10s ease, box-shadow 0.10s ease;
+    }
+
+    .button:hover {
+      transform: scale(1.03);
+    }
+
+    .submit {
+      background-color: var(--borderInputSubmitColor);
+      color: var(--white);
+    }
+
+    .submit:hover {
+      background-color: var(--submitHoverColor);
+      color: var(--textColor);
+    }
+
+    .back {
+      background-color: var(--backColor);
+      color: var(--textColor);
+    }
+
+    .back:hover {
+      background-color: #c30b0bea;
+      color: var(--formColor);
+    }
+
+    .search {
+      background-color: var(--headlineColor);
+      color: var(--textColor);
+    }
+
+    .search:hover {
+      background-color: var(--searchHoverColor);
+      color: var(--white);
+    }
+    /* Заголовок ячейки */
+
+    .topText {
+      margin-bottom: 10px;
+      font-size: var(--cellHeader);
+    }
+
+    .mtlp, .topTextForm {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .rightInput {
+      width: 25%;
+    }
+    
+    .leftText, .rightInput {
+      margin-top: 5px;
+      margin-bottom: 5px;
+    }
+
+    .selectType {
+      background-color: var(--validColor);
+    }
+
+    .forH2Select {
+      background-color: var(--white);
+    }
+
+    h2 {
+      font-size: var(--forH2);
+    }
+
+    .footer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.9em;
+    }
+
+    .dot {
+      margin: 0 4px;
+    }
+
+    .github-link {
+      display: inline-flex;
+      align-items: center;
+      color: inherit;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+
+    .github-link:hover {
+      opacity: 0.75;
+      transform: scale(1.1);
+    }

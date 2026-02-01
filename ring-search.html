@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Поиск кольца</title>
+    <script src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .threeColumns {
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+            align-items: center;
+            gap: 10px; 
+        }
+
+        .textFor {
+            width: 25%;
+            text-align: center;
+        }
+
+        .rightInputTwo {
+            width: 62.5%;
+        }
+        .topTextForm {
+            margin-bottom: 10px;
+        }
+
+        .button {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body class="forForm">
+    <form id="ringFormSearch">
+        <div class="container head">
+            <h1>Параметры поиска кольца</h1>
+        </div>
+
+        <div class="container mtlp startSearch">
+            <h2>Поиск по:</h2>
+            <select id="searchBy" class="selectType forH2Select">
+                <option value="parameters">Параметрам</option>
+                <option value="rnNumber">По номеру РН</option>
+            </select>
+        </div>
+
+        <div id="parameters">
+
+            <div class="container mtlp">
+                <label for="typeSearch" class="topText">Тип кольца</label>
+                <input type="text" id="typeSearch" class="normalInput" list="typeListSearch" placeholder="Выбери или введи свой вариант">
+                <datalist id="typeListSearch">
+                    <option value="Прокладка">
+                    <option value="O-ring">
+                    <option value="X-ring">
+                    <option value="D-ring">
+                    <option value="U-ring">
+                    <option value="V-ring">
+                </datalist>
+            </div>
+
+            <div class="container mtlp">
+                <label for="materialSearch" class="topText">Материал</label>
+                <input type="text" id="materialSearch" class="normalInput" list="materialListSearch" placeholder="Выбери или введи свой вариант">
+                <datalist id="materialListSearch">
+                    <option value="NBR">
+                    <option value="FPM">
+                    <option value="PTFE">
+                </datalist>
+            </div>
+
+            <div class="container">
+                    <div class ="threeColumns">
+                    <label for="shdSearch">Твёрдость (по Шору):</label>
+
+                <input type="number" id="shdSearch1" min="0" class="rightInput" list="typeOfHardness">
+                    <datalist id="typeOfHardness">
+                        <option value="70">
+                        <option value="75">
+                        <option value="80">
+                        <option value="90">
+                    </datalist>
+                    </div>
+            </div>
+
+            <div class="container">
+                <div class="topTextForm">Типовой размер:</div>
+
+                    <div class="threeColumns">
+                        <div class="textFor">
+                            <label for="inDiameterForm" class="leftText">Внутренний диаметр:</label>
+                        </div>
+                        <input type="number" id="inDiameterForm" placeholder="От"  min="0" class="rightInput">
+                        <input type="number" id="inDiameterTo" placeholder="До"  min="0" class="rightInput">
+                    </div>
+
+                    <div class="threeColumns">
+                        <div class="textFor">
+                            <label for="outDiameterForm" class="leftText">Наружный диаметр:</label>
+                        </div>
+                        <input type="number" id="outDiameterForm" placeholder="От" min="0" class="rightInput">
+                        <input type="number" id="outDiameterTo" placeholder="До" min="0" class="rightInput">
+                    </div>
+
+                    <div class="threeColumns">
+                        <div class="textFor">
+                            <label for="sectionSearchForm" class="leftText">Сечение:</label>
+                        </div>
+                        <input type="number" id="sectionSearchForm" placeholder="От" min="0" class="rightInput">
+                        <input type="number" id="sectionSearchTo" placeholder="До" min="0" class="rightInput">
+                    </div>
+            </div>
+
+            <div class="container">
+                <div class="threeColumns">
+                    <label for="inStockSearch">Только в наличии</label>
+                    <input type="checkbox" id="inStockSearch" class="rightInput">
+                </div>
+            </div>
+
+        </div>
+
+        <div id="numberNR" style="display: none">
+
+            <div class="container mtlp">
+                <label for="numberRNSearch" class="topText">По номеру РН</label>
+                <input  type="text" class="normalInput" id="numberRNSearch" placeholder="002284" autocomplete="off">
+            </div>
+
+        </div>
+
+        <button type="submit" class="button search" >Поиск</button>
+    </form>
+        <button type="button" class="button submit" id="resetBtn">Сброс</button>
+        <button class="button back" id="backButton" onclick="back()">Назад</button>
+</body>
+<footer>
+  <p class="footer">
+    © 2026 Михаил Полтавский
+    <span class="dot">·</span>
+    Мой GitHub —
+    <a href="https://github.com/Bentor48"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="github-link"
+       aria-label="Мой GitHub">
+
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"
+           xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 .5C5.73.5.5 5.74.5 12.02c0 5.11 3.29 9.45 7.86 10.98.58.11.79-.25.79-.56
+        0-.28-.01-1.02-.02-2-3.2.7-3.88-1.54-3.88-1.54
+        -.53-1.36-1.3-1.72-1.3-1.72
+        -1.06-.73.08-.72.08-.72
+        1.17.08 1.79 1.2 1.79 1.2
+        1.04 1.78 2.73 1.27 3.4.97
+        .11-.75.41-1.27.74-1.56
+        -2.56-.29-5.26-1.28-5.26-5.69
+        0-1.26.45-2.29 1.19-3.1
+        -.12-.29-.52-1.46.11-3.05
+        0 0 .97-.31 3.18 1.18
+        .92-.26 1.9-.39 2.88-.39
+        .98 0 1.96.13 2.88.39
+        2.2-1.49 3.18-1.18 3.18-1.18
+        .63 1.59.23 2.76.11 3.05
+        .74.81 1.19 1.84 1.19 3.1
+        0 4.42-2.7 5.39-5.27 5.67
+        .42.36.8 1.08.8 2.18
+        0 1.57-.01 2.84-.01 3.23
+        0 .31.21.68.8.56
+        4.57-1.53 7.85-5.87 7.85-10.98
+        C23.5 5.74 18.27.5 12 .5z"/>
+      </svg>
+    </a>
+  </p>
+</footer>
+<script>
+// Выбор между поиском по параметрам и по номеру РН
+const searchSelect = document.getElementById('searchBy');
+const parametersForSearch = document.getElementById('parameters');
+const numberNRSearch = document.getElementById('numberNR');
+
+function setDisabled(container, disabled) {
+    const inputs = container.querySelectorAll('input, select, textarea');
+    inputs.forEach(input => {
+        input.disabled = disabled;
+    });
+}
+
+function clearInputs(container) {
+    container.querySelectorAll('input').forEach(input => {
+        if (input.type === 'checkbox') {
+            input.checked = false;
+        } else {
+            input.value = '';
+        }
+    });
+}
+
+
+
+function updateSearchMode() {
+    parametersForSearch.style.display = 'none';
+    numberNRSearch.style.display = 'none';
+
+    setDisabled(parametersForSearch, true);
+    setDisabled(numberNRSearch, true);
+
+    if (searchSelect.value === "parameters") {
+        parametersForSearch.style.display = 'block';
+        setDisabled(parametersForSearch, false);
+    } else if (searchSelect.value === "rnNumber") {
+        numberNRSearch.style.display = 'block';
+        setDisabled(numberNRSearch, false);
+    }
+}
+
+searchSelect.addEventListener('change', () => {
+    clearInputs(parametersForSearch);
+    clearInputs(numberNRSearch);
+    updateSearchMode();
+});
+
+updateSearchMode();
+
+const form = document.getElementById("ringFormSearch");
+
+form.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    await search();
+});
+
+
+
+// Пишем функции ВНЕ всяких других функций, прямо в корне <script>
+window.hideExcelRow = async function(rowNumber) {
+    console.log("Попытка скрыть строку:", rowNumber);
+    try {
+        await Excel.run(async (context) => {
+            const sheet = context.workbook.worksheets.getActiveWorksheet();
+            const range = sheet.getRange(`${rowNumber}:${rowNumber}`);
+            range.rowHidden = true;
+            await context.sync();
+            console.log(`✅ Строка ${rowNumber} скрыта в Excel`);
+        });
+    } catch (err) {
+        console.error("Ошибка Excel. Проверьте название листа (должно быть 'rings'):", err);
+    }
+};
+
+window.showAll = async function() {
+    try {
+        await Excel.run(async (context) => {
+            context.workbook.worksheets.getActiveWorksheet().getUsedRange().rowHidden = false;
+            await context.sync();
+            console.log("✅ Все строки открыты");
+        });
+    } catch (err) {
+        console.error("Ошибка при показе строк:", err);
+    }
+};
+
+// Инициализация Office (пустая, просто чтобы аддон не падал)
+Office.onReady((info) => {
+    if (info.host === Office.HostType.Excel) {
+        console.log("Office готов, хост: Excel");
+        // Вызываем функцию, которая реально существует в коде ниже
+        getAllRows();
+}
+
+});
+
+let ringsDatabase = [];
+
+
+
+async function getAllRows() {
+    try {
+        await Excel.run(async (context) => {
+
+            const sheet = context.workbook.worksheets.getActiveWorksheet();
+            const usedRange = sheet.getUsedRange();
+
+            usedRange.load("values");
+            await context.sync();
+
+            const values = usedRange.values;
+
+            if (!values || values.length < 2) {
+                console.warn("Таблица пуста или содержит мало данных");
+                ringsDatabase = null;
+                return;
+            }
+
+            // Убираем первую строку (служебную, если она есть)
+            // Оставляем: [заголовки + данные]
+            ringsDatabase = values.slice(2);
+
+            console.log("ringsDatabase:", ringsDatabase);
+        });
+    } catch (error) {
+        console.error("Ошибка Excel:", error.debugInfo || error);
+    }
+}
+
+
+
+async function search() {
+
+    await window.showAll();
+
+    if (searchSelect.value === "rnNumber") {
+
+    const rn = String(document.getElementById("numberRNSearch").value).trim();
+
+        if (!rn) {
+            console.warn("Пожалуйста, введите номер РН для поиска.");
+            return;
+        }
+
+    console.log("Начинаю поиск РН:", rn);
+
+    let count = 3;
+
+        for (let char of ringsDatabase) {
+            if (String(char[4] || "").trim() !== rn) {
+                await window.hideExcelRow(count);
+            }
+            count++;
+        }
+
+    } else if (searchSelect.value === "parameters") {
+
+    // ===== ПОИСК ПО ПАРАМЕТРАМ =====
+
+    const type = String(document.getElementById("typeSearch").value).trim();
+    const material = String(document.getElementById("materialSearch").value).trim();
+    const shd = Number(document.getElementById("shdSearch1").value) || null;
+
+    // --- внутренний диаметр ---
+    function getNumberOrNaN(id) {
+        const v = document.getElementById(id).value.trim();
+        return v === "" ? NaN : Number(v);
+    }
+
+    const inVals1 = getNumberOrNaN("inDiameterForm");
+    const inVals2 = getNumberOrNaN("inDiameterTo");
+
+
+    // --- внешний диаметр ---
+    const outVals1 = getNumberOrNaN("outDiameterForm");
+    const outVals2 = getNumberOrNaN("outDiameterTo");
+
+    // --- сечение ---
+    const sectionSearch1 = getNumberOrNaN("sectionSearchForm");
+    const sectionSearch2 = getNumberOrNaN("sectionSearchTo");
+
+    const inStock = document.getElementById("inStockSearch").checked;
+
+    let count = 3;
+
+        for (const char of ringsDatabase) {
+
+            if (inStock) {
+                const qty = Number(char[3]) || 0;
+                if (qty <= 0) {
+                    await window.hideExcelRow(count);
+                    count++;
+                    continue;
+                }
+            }
+
+            if (type) {
+                if (String(char[6] || "").trim() !== type) {
+                    await window.hideExcelRow(count);
+                    count++;
+                    continue;
+                }
+            }
+
+            if (material) {
+                if (String(char[7] || "").trim() !== material) {
+                    await window.hideExcelRow(count);
+                    count++;
+                    continue;
+                }
+            }
+
+            if (shd) {
+                if (shd !== Number(char[8])) {
+                    await window.hideExcelRow(count);
+                    count++;
+                    continue;
+                }
+            }
+
+            // --- внешний диаметр ---
+            const hasInFilter1 = !isNaN(outVals1) || !isNaN(outVals2);
+
+            if (hasInFilter1) {
+
+                const val = Number(char[10]);
+
+                // если фильтр включён, а значение в Excel не число
+                if (isNaN(val)) {
+                    await window.hideExcelRow(count);
+                    count++;
+                    continue;
+                }
+
+                // 🔹 введены оба значения
+                if (!isNaN(outVals1) && !isNaN(outVals2)) {
+
+                    const min = Math.min(outVals1, outVals2);
+                    const max = Math.max(outVals1, outVals2);
+
+                    if (val < min || val > max) {
+                        await window.hideExcelRow(count);
+                        count++;
+                        continue;
+                    }
+
+                // 🔹 введено ТОЛЬКО "От"
+                } else if (!isNaN(outVals1)) {
+
+                    if (val < outVals1) {
+                        await window.hideExcelRow(count);
+                        count++;
+                        continue;
+                    }
+
+                // 🔹 введено ТОЛЬКО "До"
+                } else if (!isNaN(outVals2)) {
+
+                    if (val > outVals2) {
+                        await window.hideExcelRow(count);
+                        count++;
+                        continue;
+                    }
+                }
+            }
+
+
+            // --- внутренний диаметр ---
+            const hasInFilter2 = !isNaN(inVals1) || !isNaN(inVals2);
+
+            if (hasInFilter2) {
+
+                const val = Number(char[9]);
+
+                // если фильтр включён, а значение в Excel не число
+                if (isNaN(val)) {
+                    await window.hideExcelRow(count);
+                    count++;
+                    continue;
+                }
+
+                // 🔹 введены оба значения
+                if (!isNaN(inVals1) && !isNaN(inVals2)) {
+
+                    const min = Math.min(inVals1, inVals2);
+                    const max = Math.max(inVals1, inVals2);
+
+                    if (val < min || val > max) {
+                        await window.hideExcelRow(count);
+                        count++;
+                        continue;
+                    }
+
+                // 🔹 введено ТОЛЬКО "От"
+                } else if (!isNaN(inVals1)) {
+
+                    if (val < inVals1) {
+                        await window.hideExcelRow(count);
+                        count++;
+                        continue;
+                    }
+
+                // 🔹 введено ТОЛЬКО "До"
+                } else if (!isNaN(inVals2)) {
+
+                    if (val > inVals2) {
+                        await window.hideExcelRow(count);
+                        count++;
+                        continue;
+                    }
+                }
+            }
+
+            // --- сечение ---
+            const hasInFilter3 = !isNaN(sectionSearch1) || !isNaN(sectionSearch2);
+
+            if (hasInFilter3) {
+
+                const val = Number(char[11]);
+
+                // если фильтр включён, а значение в Excel не число
+                if (isNaN(val)) {
+                    await window.hideExcelRow(count);
+                    count++;
+                    continue;
+                }
+
+                // 🔹 введены оба значения
+                if (!isNaN(sectionSearch1) && !isNaN(sectionSearch2)) {
+
+                    const min = Math.min(sectionSearch1, sectionSearch2);
+                    const max = Math.max(sectionSearch1, sectionSearch2);
+
+                    if (val < min || val > max) {
+                        await window.hideExcelRow(count);
+                        count++;
+                        continue;
+                    }
+
+                // 🔹 введено ТОЛЬКО "От"
+                } else if (!isNaN(sectionSearch1)) {
+
+                    if (val < sectionSearch1) {
+                        await window.hideExcelRow(count);
+                        count++;
+                        continue;
+                    }
+
+                // 🔹 введено ТОЛЬКО "До"
+                } else if (!isNaN(sectionSearch2)) {
+
+                    if (val > sectionSearch2) {
+                        await window.hideExcelRow(count);
+                        count++;
+                        continue;
+                    }
+                }
+            }
+
+            count++;
+        }
+    }
+}
+
+
+const reset = document.getElementById("resetBtn");
+
+reset.addEventListener("click", async (event) => {
+    event.preventDefault();
+
+    form.reset();              // очищает ВСЮ форму
+    updateSearchMode();        // возвращает правильный режим
+    await window.showAll();    // открывает строки в Excel
+});
+
+function back() {
+    window.location.href = "taskpane.html";
+}
+</script>
+</html>
