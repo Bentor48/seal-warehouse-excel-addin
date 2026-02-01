@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<OfficeApp
+  xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+  xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+  xsi:type="TaskPaneApp">
+
+  <Id>7f2c4b7e-9f6a-4c8b-a9f5-123456789abc</Id>
+  <Version>1.0.0.0</Version>
+
+  <ProviderName>Mikhail Poltavskyi</ProviderName>
+  <DefaultLocale>ru-RU</DefaultLocale>
+
+  <DisplayName DefaultValue="Seal Warehouse"/>
+  <Description DefaultValue="Офлайн аддон Excel для работы со складом"/>
+
+  <IconUrl DefaultValue="https://bentor48.github.io/seal-warehouse-excel-addin/assets/icon-32.png"/>
+  <SupportUrl DefaultValue="https://github.com/Bentor48/seal-warehouse-excel-addin"/>
+
+  <Hosts>
+    <Host Name="Workbook"/>
+  </Hosts>
+
+  <Permissions>ReadWriteDocument</Permissions>
+
+  <!-- ГЛАВНАЯ СТРАНИЦА -->
+  <DefaultSettings>
+    <SourceLocation DefaultValue="https://bentor48.github.io/seal-warehouse-excel-addin/taskpane.html"/>
+  </DefaultSettings>
+
+  <VersionOverrides
+    xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
+    xsi:type="VersionOverridesV1_0">
+
+    <Hosts>
+      <Host xsi:type="Workbook">
+        <DesktopFormFactor>
+
+          <ExtensionPoint xsi:type="PrimaryCommandSurface">
+            <OfficeTab id="TabHome">
+              <Group id="SealWarehouseGroup">
+                <Label resid="GroupLabel"/>
+
+                <Control xsi:type="Button" id="OpenAddinButton">
+                  <Label resid="ButtonLabel"/>
+
+                  <Supertip>
+                    <Title resid="ButtonLabel"/>
+                    <Description resid="ButtonDesc"/>
+                  </Supertip>
+
+                  <Icon>
+                    <bt:Image size="16" resid="Icon16"/>
+                    <bt:Image size="32" resid="Icon32"/>
+                    <bt:Image size="80" resid="Icon80"/>
+                  </Icon>
+
+                  <Action xsi:type="ShowTaskpane">
+                    <SourceLocation resid="TaskpaneUrl"/>
+                  </Action>
+                </Control>
+
+              </Group>
+            </OfficeTab>
+          </ExtensionPoint>
+
+        </DesktopFormFactor>
+      </Host>
+    </Hosts>
+
+    <Resources>
+      <bt:Images>
+        <bt:Image id="Icon16" DefaultValue="https://bentor48.github.io/seal-warehouse-excel-addin/assets/icon-16.png"/>
+        <bt:Image id="Icon32" DefaultValue="https://bentor48.github.io/seal-warehouse-excel-addin/assets/icon-32.png"/>
+        <bt:Image id="Icon80" DefaultValue="https://bentor48.github.io/seal-warehouse-excel-addin/assets/icon-80.png"/>
+      </bt:Images>
+
+      <bt:Urls>
+        <bt:Url id="TaskpaneUrl" DefaultValue="https://bentor48.github.io/seal-warehouse-excel-addin/taskpane.html"/>
+      </bt:Urls>
+
+      <bt:ShortStrings>
+        <bt:String id="GroupLabel" DefaultValue="Seal Warehouse"/>
+        <bt:String id="ButtonLabel" DefaultValue="Открыть"/>
+      </bt:ShortStrings>
+
+      <bt:LongStrings>
+        <bt:String id="ButtonDesc" DefaultValue="Открыть панель управления складом"/>
+      </bt:LongStrings>
+    </Resources>
+
+  </VersionOverrides>
+</OfficeApp>
+
