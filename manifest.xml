@@ -8,7 +8,6 @@
 
   <Id>7f2c4b7e-9f6a-4c8b-a9f5-123456789abc</Id>
   <Version>1.0.0.0</Version>
-
   <ProviderName>Mikhail Poltavskyi</ProviderName>
   <DefaultLocale>ru-RU</DefaultLocale>
 
@@ -16,7 +15,6 @@
   <Description DefaultValue="Офлайн аддон Excel для работы со складом"/>
 
   <IconUrl DefaultValue="https://bentor48.github.io/seal-warehouse-excel-addin/assets/icon-32.png"/>
-  <SupportUrl DefaultValue="https://github.com/Bentor48/seal-warehouse-excel-addin"/>
 
   <Hosts>
     <Host Name="Workbook"/>
@@ -24,7 +22,6 @@
 
   <Permissions>ReadWriteDocument</Permissions>
 
-  <!-- ГЛАВНАЯ СТРАНИЦА -->
   <DefaultSettings>
     <SourceLocation DefaultValue="https://bentor48.github.io/seal-warehouse-excel-addin/taskpane.html"/>
   </DefaultSettings>
@@ -60,7 +57,6 @@
                     <SourceLocation resid="TaskpaneUrl"/>
                   </Action>
                 </Control>
-
               </Group>
             </OfficeTab>
           </ExtensionPoint>
@@ -92,4 +88,3 @@
 
   </VersionOverrides>
 </OfficeApp>
-
