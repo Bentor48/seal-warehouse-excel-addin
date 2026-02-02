@@ -6,7 +6,7 @@
   xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides"
   xsi:type="TaskPaneApp">
 
-  <Id>7f2c4b7e-9f6a-4c8b-a9f5-123456789abc</Id>
+  <Id>cc1efec6-7d4d-494c-8a9d-b21db0d93b6c</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>Mikhail Poltavskyi</ProviderName>
   <DefaultLocale>ru-RU</DefaultLocale>
@@ -88,3 +88,4 @@
 
   </VersionOverrides>
 </OfficeApp>
+
